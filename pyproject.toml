@@ -20,17 +20,20 @@ include = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.6.1"
-Sphinx = "^4.0.2"
+python = "^3.8"
+Sphinx = "^6.0.0"
 
-[tool.poetry.dev-dependencies]
-coverage = "^5.4"
-detect-secrets = "1.0.3"
-myst-parser = "^0.15"
-pre-commit = "^2.10"
-pytest = "^6.2"
-pytest-mock = "^3.5"
-toml = "^0.10"
+[tool.poetry.group.dev]
+optional = true
+
+[tool.poetry.group.dev.dependencies]
+coverage = "^7.3.1"
+myst-parser = "^2.0.0"
+detect-secrets = "^1.4.0"
+pre-commit = "^3.4.0"
+pytest = "^7.4.2"
+pytest-mock = "^3.11.1"
+toml = "^0.10.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
