@@ -16,7 +16,7 @@ jobs:
         with:
           python-version: 3.9
       - name: Install Poetry
-        uses: snok/install-poetry@v1.1.6
+        uses: snok/install-poetry@v1
         with:
           virtualenvs-create: true
           virtualenvs-in-project: true
@@ -28,11 +28,11 @@ jobs:
           key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
       - name: Install Poetry dependencies
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
-        run: poetry install --no-interaction --no-root
+        run: poetry install --no-interaction --no-root --with dev
       - name: Install dependencies
-        run: poetry run make dependencies
+        run: make dependencies
       - name: Create documentation
-        run: poetry run make docs
+        run: make docs
       - name: Build package
         run: poetry build
       - name: Set the deployment configuration for Poetry
