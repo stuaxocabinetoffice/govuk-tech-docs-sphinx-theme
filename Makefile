@@ -12,8 +12,8 @@
 
 ## Install the Poetry dependencies for contributors, and install pre-commit hooks
 dependencies:
-	poetry install --no-interaction
-	pre-commit install
+	poetry install --no-interaction --with dev
+	poetry run pre-commit install
 
 ## Create a `docs/_build` folder, if it doesn't exist. Otherwise delete any sub-folders and their contents within it
 prepare_docs_folder:
@@ -22,23 +22,23 @@ prepare_docs_folder:
 
 ## Compile the Sphinx documentation in HTML format in the docs/_build folder from a clean build
 docs: prepare_docs_folder dependencies
-	sphinx-build -b html ./docs ./docs/_build
+	poetry run sphinx-build -b html ./docs ./docs/_build
 
 ## Check external links in the Sphinx documentation using linkcheck in the docs/_build folder from a clean build
 docs_check_external_links: prepare_docs_folder dependencies
-	sphinx-build -b linkcheck ./docs ./docs/_build
+	poetry run sphinx-build -b linkcheck ./docs ./docs/_build
 
 ## Run code coverage
 coverage: dependencies
-	coverage run -m pytest
+	poetry run coverage run -m pytest
 
 ## Run code coverage, and produce a HTML output
 coverage_html: coverage
-	coverage html
+	poetry run coverage html
 
 ## Run code coverage, and produce an XML output
 coverage_xml: coverage
-	coverage xml
+	poetry run coverage xml
 
 ## Get help on all make commands; referenced from https://github.com/drivendata/cookiecutter-data-science
 help:
