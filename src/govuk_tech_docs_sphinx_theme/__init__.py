@@ -68,7 +68,7 @@ def setup(app):
     app.add_directive("note", NotificationBanner)
 
     return {
-        'version': __version__,
-        'parallel_read_safe': True,
-        'parallel_write_safe': True,
+        "version": __version__,
+        "parallel_read_safe": True,
+        "parallel_write_safe": True,
     }
