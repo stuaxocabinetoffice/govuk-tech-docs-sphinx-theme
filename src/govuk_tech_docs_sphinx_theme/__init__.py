@@ -6,10 +6,7 @@ from govuk_tech_docs_sphinx_theme.components.warning_text import WarningText
 from pathlib import Path
 from typing import List
 
-try:
-    from importlib.metadata import version, PackageNotFoundError
-except ImportError:
-    from importlib_metadata import version, PackageNotFoundError
+from importlib.metadata import version, PackageNotFoundError
 
 __all__ = ["add_js_files", "setup", "NotificationBanner", "WarningText"]
 
@@ -45,25 +42,22 @@ def add_js_files(app, files: List[Path]) -> None:
 
     Returns:
         None
-
     """
     _ = [app.add_js_file(j) for j in files]
 
 
-def setup(app) -> None:
+def setup(app):
     """Set up function for the Sphinx theme.
 
     Args:
         app: A ``sphinx.application.Sphinx`` object.
 
     Returns:
-        None
-
+        dict: Theme metadata
     """
-
     # Register the HTML theme
     app.add_html_theme(
-        "govuk_tech_docs_sphinx_theme", Path.resolve(Path(__file__).parent)
+        "govuk_tech_docs_sphinx_theme", str(Path(__file__).parent.resolve())
     )
 
     # Import required JavaScript files on build
@@ -72,3 +66,9 @@ def setup(app) -> None:
     # Add GOV.UK Design System components
     app.add_directive("warning", WarningText)
     app.add_directive("note", NotificationBanner)
+
+    return {
+        'version': __version__,
+        'parallel_read_safe': True,
+        'parallel_write_safe': True,
+    }

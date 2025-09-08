@@ -1,7 +1,8 @@
 # `poetry` configurations
 [tool.poetry]
+packages = [{include = "govuk_tech_docs_sphinx_theme", from = "src"}]
 name = "govuk-tech-docs-sphinx-theme"
-version = "1.0.0"
+version = "1.0.1"
 description = "A Sphinx theme to replicate the GOV.UK Tech Docs Template."
 authors = ["ukgovdatascience <gds-data-science@digital.cabinet-office.gov.uk>"]
 license = "MIT"
@@ -37,6 +38,9 @@ myst-parser = "^4.0.1"
 pre-commit = "^4.3.0"
 pytest = "^8.4.2"
 pytest-mock = "^3.15.0"
+
+[tool.poetry.plugins."sphinx.html_themes"]
+govuk_tech_docs_sphinx_theme = "govuk_tech_docs_sphinx_theme"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
