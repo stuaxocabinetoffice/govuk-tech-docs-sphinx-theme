@@ -6,6 +6,7 @@ on:
 
 jobs:
   build-wheels:
+    name: Build wheels (Python ${{ matrix.python-version }})
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -51,6 +52,7 @@ jobs:
           retention-days: 1
 
   deploy-package-and-documentation:
+    name: Deploy package and documentation
     needs: build-wheels
     runs-on: ubuntu-latest
 
