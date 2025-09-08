@@ -14,26 +14,29 @@ classifiers = [
     "Framework :: Sphinx",
     "Framework :: Sphinx :: Theme",
     "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
 ]
 include = [
     "LICENSE",
 ]
 
 [tool.poetry.dependencies]
-python = "^3.8"
-Sphinx = "^6.0.0"
+python = "^3.11"
+Sphinx = "^8.2.3"
 
 [tool.poetry.group.dev]
 optional = true
 
 [tool.poetry.group.dev.dependencies]
-coverage = "^7.3.1"
-myst-parser = "^2.0.0"
-detect-secrets = "^1.4.0"
-pre-commit = "^3.4.0"
-pytest = "^7.4.2"
-pytest-mock = "^3.11.1"
-toml = "^0.10.2"
+coverage = "^7.10.6"
+detect-secrets = "^1.5.0"
+myst-parser = "^4.0.1"
+pre-commit = "^4.3.0"
+pytest = "^8.4.2"
+pytest-mock = "^3.15.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
@@ -55,7 +58,7 @@ exclude_lines = [
 profile = "black"
 
 # `pytest` configurations
-[tool.pyproject.toml_options]
+[tool.pytest.ini_options]
 addopts = [
     "-vv",
     "--doctest-modules"
