@@ -3,6 +3,7 @@ name: govuk-tech-docs-sphinx-theme deploy package and documentation
 on:
   release:
     types: [released]
+  workflow_dispatch:
 
 jobs:
   build-wheels:
