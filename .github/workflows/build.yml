@@ -34,7 +34,9 @@ jobs:
 
       - name: Install Poetry dependencies
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
-        run: poetry install --no-interaction --no-root --with dev
+        run: |
+          poetry install --no-interaction --no-root --with dev
+        shell: bash
 
       - name: Install library and dependencies
         run: |
@@ -50,7 +52,9 @@ jobs:
         shell: bash
 
       - name: Run pre-commit hooks
-        run: poetry run pre-commit run --all-files
+        run: |
+          poetry run pre-commit run --all-files
+        shell: bash
 
       - name: Create documentation
         run: |
