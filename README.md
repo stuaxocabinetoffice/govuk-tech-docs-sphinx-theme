@@ -8,10 +8,18 @@ Where this documentation refers to the root folder we mean where this README.md 
 
 ```
 
+This is a fork of [govuk-tech-docs-sphinx-theme](https://github.com/ukgovdatascience/govuk-tech-docs-sphinx-theme) incorporating patches by Eric Young, Dan Milne, and Stuart Axon:
+
+- Python 3.11-3.13 support (dropped 3.6-3.10)
+- Sphinx 8.2+ compatibility
+- Updated GitHub Actions and dependencies
+- Fixed theme registration and packaging
+- Accessibility statement corrections
+
 ## Getting started
 
 The source code for this Sphinx theme is available at
-[`https://github.com/ukgovdatascience/govuk-tech-docs-sphinx-theme`][repository]. You
+[`https://github.com/stuart-axon/govuk-tech-docs-sphinx-theme`][repository].  You
 can use this for your own Sphinx documentation by following the steps below.
 
 ### Install the package
